@@ -2,6 +2,7 @@ package com.example.departmentoperations.controller;
 
 
 import com.example.departmentoperations.entity.Department;
+import com.example.departmentoperations.error.DepartmentNotFoundException;
 import com.example.departmentoperations.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -37,8 +38,7 @@ public class DepartmentController {
         return departmentService.fetchDepartmentList();
     }
     @GetMapping ("/getdepartmentbyid/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId)
-    {
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
 
         return departmentService.fetchDepartmentById(departmentId);
     }
